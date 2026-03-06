@@ -41,8 +41,8 @@ SELECT
     p.payment_amount AS payment_amount,
     p.payment_method AS payment_method,
     p.payment_time AS payment_time
-FROM macd_orders_stream o
-INNER JOIN macd_payments_stream p
+FROM macd_orders_raw_stream o
+INNER JOIN macd_payments_raw_stream p
     WITHIN 24 HOURS
     ON o.order_id = p.order_id
 EMIT CHANGES;
